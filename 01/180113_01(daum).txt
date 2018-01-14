@@ -1,0 +1,50 @@
+package opens;
+
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+ 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+ 
+public class main {
+    public static void main(String[] args) throws Exception {
+        
+    	
+    	FileWriter fo = new FileWriter("C:\\JHS\\data.txt");
+        InputStreamReader reader = new InputStreamReader(System.in);
+        
+        BufferedReader buff = new BufferedReader(reader);
+        
+        //System.out.print("input url: ");
+       // String url = buff.readLine();
+        String url = "https://www.daum.net";
+        
+        System.out.print("input selector: ");
+        String selector = buff.readLine();
+        
+        
+        Document doc = Jsoup.connect(url).get();
+        
+        Elements titles = doc.select(selector);
+        
+        String output = "";
+        
+        for(Element e: titles) {
+            output += e.text();
+            output += "\r\n";
+
+        }
+        
+        
+        //System.out.println( output.replace("\n\n", "\b") );
+        System.out.println( output );
+        fo.write(output);
+        System.out.println(" output" );
+        fo.close();
+        //input selector : ol.list_hotissue.issue_row.list_mini
+    }
+}

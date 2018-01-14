@@ -1,0 +1,55 @@
+package opens;
+ 
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+ 
+public class main {
+    public static void main(String[] args) throws Exception {
+        
+    	
+    	
+    	//FileWriter fo = new FileWriter("C:\\Users\\ARTISTSHIP3\\Desktop\\hongbin\\2.txt");
+        InputStreamReader reader = new InputStreamReader(System.in);
+        
+        BufferedReader buff = new BufferedReader(reader);
+        
+        //System.out.print("input url: ");
+       // String url = buff.readLine();
+        String url = "http://www.naver.com/";
+        
+        System.out.print("input selector: ");
+        String selector = buff.readLine();
+        
+        
+        Document doc = Jsoup.connect(url).get();
+        
+        Elements titles = doc.select(selector);
+        
+        String output = "";
+        int cnt=0;
+        for(Element e: titles) {
+        	cnt++;
+        	if(cnt==11) break;
+            output += e.text();
+            output += "\n";
+
+        }
+        
+
+        
+        System.out.println(output);
+        System.out.println("*");
+        //fo.write(output);
+     
+     //   fo.close();
+        
+    }
+}

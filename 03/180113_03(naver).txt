@@ -1,0 +1,55 @@
+package opens;
+ 
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+ 
+public class Naver {
+        
+    	Naver() throws IOException{
+    	
+    	FileWriter fo = new FileWriter("C:\\JHS\\naver.txt");
+        //InputStreamReader reader = new InputStreamReader(System.in);
+        
+        //BufferedReader buff = new BufferedReader(reader);
+        
+        //System.out.print("input url: ");
+       // String url = buff.readLine();
+        String url = "http://www.naver.com/";
+        
+       // System.out.print("input selector: ");
+        //String selector = buff.readLine();
+        String selector = "li.ah_item";
+        
+        Document doc = Jsoup.connect(url).get();
+        
+        Elements titles = doc.select(selector);
+        
+        String output = "";
+        int cnt=0;
+        for(Element e: titles) {
+        	cnt++;
+        	if(cnt==11) break;
+            output += e.text();
+            output += "\r\n";
+
+        }
+        
+
+        System.out.println("Naver 실시간 검색어" );
+        System.out.println(output);
+       
+       fo.write(output);
+     
+       fo.close();
+        
+    }
+}

@@ -1,0 +1,53 @@
+package opens;
+
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+ 
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+ 
+public class Daum {
+        
+    	
+    	FileWriter fo = new FileWriter("C:\\JHS\\daum.txt");
+       // InputStreamReader reader = new InputStreamReader(System.in);
+        
+        //BufferedReader buff = new BufferedReader(reader);
+        
+        //System.out.print("input url: ");
+       // String url = buff.readLine();
+        String url = "https://www.daum.net";
+        
+       
+       // String selector = buff.readLine();
+        String selector = "ol.list_hotissue.issue_row.list_mini";
+        
+     
+         
+        
+        Document doc = Jsoup.connect(url).get();
+        
+        Elements titles = doc.select(selector);
+        
+        String output = "";
+        
+        for(Element e: titles) {
+            output += e.text();
+            output += "\r\n";
+
+        }
+        
+        
+        //System.out.println( output.replace("\n\n", "\b") );
+        System.out.println("Daum 실시간 검색어" );
+        System.out.println( output );
+        fo.write(output);
+       
+        fo.close();
+        //input selector : ol.list_hotissue.issue_row.list_mini
+   
+}
