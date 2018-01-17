@@ -1,0 +1,44 @@
+package opens;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.awt.event.ActionEvent;
+
+public class gui extends JFrame {
+
+	public gui() {
+		setTitle("프로그램");
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		getContentPane().setLayout(null);
+		setSize(200,200);
+		
+		JButton btnNewButton = new JButton("갱신");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				try {
+					new Daum();
+					new Naver();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+			}
+		});
+		btnNewButton.setBounds(35, 29, 113, 45);
+		getContentPane().add(btnNewButton);
+		
+		JButton button = new JButton("중지");
+		button.setBounds(35, 94, 113, 45);
+		getContentPane().add(button);
+
+		setVisible(true);
+	}
+}
