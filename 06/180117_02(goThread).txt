@@ -19,7 +19,10 @@ public class goThread extends Thread{
 			try {
 				new Naver();
 				new Daum();
+<<<<<<< HEAD
 				System.out.println("°»½Å");
+=======
+>>>>>>> 135d318ff4728448afbfd02e64a72cff0de0292a
 				Thread.sleep(5000);
 				
 			} catch(InterruptedException | IOException e)
