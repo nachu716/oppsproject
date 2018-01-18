@@ -33,17 +33,19 @@ public class Naver {
         
         Elements titles = doc.select(selector);
         StringBuffer sb=new StringBuffer();
-        //180116 ���ڿ� �Ƚ�
+        //문자열 픽스
         String output = "";
         int cnt=0;
         for(Element e: titles) {
         	cnt++;
         	if(cnt==11) break;
         	sb.append(e.text());
-        	if(cnt<10)
-        		sb.insert(1, '��');
+         //1~9위까지는 숫자다음에'위'삽입 
+        	if(cnt<10)
+        		sb.insert(1, '위');
         	else
-        		sb.insert(2, '��');
+         //10위의 경우 두번째 글자다음에 '위'삽입
+        		sb.insert(2, '위');
         	
         	output+=sb.toString();
         	sb.delete(0, sb.length());
@@ -52,7 +54,7 @@ public class Naver {
         }
         
 
-        System.out.println("Naver �ǽð� �˻���" );
+        System.out.println("Naver 실시간 검색어" );
         System.out.println(output);
        
        fo.write(output);
