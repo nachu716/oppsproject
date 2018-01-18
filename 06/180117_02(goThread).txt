@@ -19,15 +19,12 @@ public class goThread extends Thread{
 			try {
 				new Naver();
 				new Daum();
-<<<<<<< HEAD
-				System.out.println("����");
-=======
->>>>>>> 135d318ff4728448afbfd02e64a72cff0de0292a
-				Thread.sleep(5000);
+				Thread.sleep(5000); //5초마다 갱신
+				System.out.println("renew"); //갱신확인메시지
 				
 			} catch(InterruptedException | IOException e)
 			{
-				e.printStackTrace();
+				e.printStackTrace(); //에러발생지 메시지 출력
 			}
 		}
 	}
