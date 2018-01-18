@@ -24,8 +24,8 @@ public class Daum {
         
        
        // String selector = buff.readLine();
-        String selector = "ol.list_hotissue.issue_row.list_mini";
-        
+        String selector = "ol.list_hotissue.issue_row.list_mini"; //selector를실시간검색어해당클래스로고정 
+      
      
          
         
@@ -43,7 +43,7 @@ public class Daum {
         
         
         //System.out.println( output.replace("\n\n", "\b") );
-        System.out.println("Daum �ǽð� �˻���" );
+        System.out.println("Daum ½Ç½Ã°£ °Ë»ö¾î" );
         System.out.println( output );
         fo.write(output);
        
