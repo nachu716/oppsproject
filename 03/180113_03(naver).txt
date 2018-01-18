@@ -34,17 +34,20 @@ public class Naver {
         Elements titles = doc.select(selector);
         
         String output = "";
+        
+        //카운트생성
         int cnt=0;
         for(Element e: titles) {
-        	cnt++;
-        	if(cnt==11) break;
-            output += e.text();
+        	cnt++; 
+         //11카운트가 되면 break
+        	if(cnt==11) break; 
+            output += e.text();
             output += "\r\n";
 
         }
         
 
-        System.out.println("Naver �ǽð� �˻���" );
+        System.out.println("Naver ½Ç½Ã°£ °Ë»ö¾î" );
         System.out.println(output);
        
        fo.write(output);
