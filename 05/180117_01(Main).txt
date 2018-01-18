@@ -14,6 +14,5 @@ import org.jsoup.select.Elements;
 public class main {
     public static void main(String[] args) throws Exception {
         
-    	new gui();
-    }
+    	new gui(); //Gui클래스호출}
 }
