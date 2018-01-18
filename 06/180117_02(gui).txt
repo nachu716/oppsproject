@@ -14,24 +14,24 @@ import java.awt.event.ActionEvent;
 public class gui extends JFrame {
 
 	public gui() {
-		setTitle("¿ÀÇÂ¼Ò½º");
+		setTitle("open source");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		getContentPane().setLayout(null);
-		setSize(200,200);
+		getContentPane().setLayout(null); //ë ˆì´ì•„ì›ƒí˜•ì‹X
+		setSize(200,200); //íŒ¬ ì‚¬ì´ì¦ˆ
 		
-		JButton btnNewButton = new JButton("°»½Å");
+		JButton btnNewButton = new JButton("renew");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				new goThread();
+				new goThread(); //ìŠ¤ë ˆë“œìƒì„±
 			}
 		});
 		btnNewButton.setBounds(35, 29, 113, 45);
 		getContentPane().add(btnNewButton);
 		
-		JButton button = new JButton("ÁßÁö");
+		JButton button = new JButton("pause");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				goThread.flag = false;
+				goThread.flag = false; //ê°±ì‹  ë°˜ë³µ ì¤‘ì§€
 			}
 		});
 		button.setBounds(35, 94, 113, 45);
