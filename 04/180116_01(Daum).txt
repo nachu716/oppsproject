@@ -43,12 +43,14 @@ public class Daum {
 	
 	        }
 	        
-	        //180116 ���ڿ� �Ƚ�
+	        // 문자열 픽스
 	        StringBuffer sb = new StringBuffer(output);
 	        for(int i = 2 ; i <sb.length();i++)
 	        {
-	           if(sb.charAt(i)=='��' &&(sb.charAt(i-1)>='0' && sb.charAt(i-1)<='9'))
+		//i-1이 숫자이며 i가 '위'인 글자 탐색
+	           if(sb.charAt(i)=='위' &&(sb.charAt(i-1)>='0' && sb.charAt(i-1)<='9'))
 	           {
+		   //10위 처리
 	        	  if(sb.charAt(i-1)=='0' &&sb.charAt(i-2)>='1')
 	        	  {
 	        		  sb.insert(i-3, "\r\n");
@@ -65,7 +67,7 @@ public class Daum {
 
 	        
 	        //System.out.println( output.replace("\n\n", "\b") );
-	        System.out.println("Daum �ǽð� �˻���" );
+	        System.out.println("Daum 실시간 검색어" );
 	        output=sb.toString();
 	        System.out.println( output );
 	    
