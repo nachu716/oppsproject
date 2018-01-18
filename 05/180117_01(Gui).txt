@@ -11,34 +11,35 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.awt.event.ActionEvent;
 
+//JFrame 상속
 public class gui extends JFrame {
 
 	public gui() {
-		setTitle("���α׷�");
+		setTitle("프로그램");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		getContentPane().setLayout(null);
 		setSize(200,200);
-		
-		JButton btnNewButton = new JButton("����");
-		btnNewButton.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				try {
-					new Daum();
+	
+		JButton btnNewButton = new JButton("갱신"); //갱신버튼생성
+		btnNewButton.addActionListener(new ActionListener() { //버튼클릭이벤트
+			public void actionPerformed(ActionEvent arg0) { 
+				try { 
+					new Daum(); //버튼 클릭시  Daum(), Naver() 호출
 					new Naver();
-				} catch (IOException e) {
+				} catch (IOException e) { 
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
 			}
 		});
-		btnNewButton.setBounds(35, 29, 113, 45);
-		getContentPane().add(btnNewButton);
+		btnNewButton.setBounds(35, 29, 113, 45); //버튼 좌표
+		getContentPane().add(btnNewButton); //콘텐트 팬에 부착
 		
-		JButton button = new JButton("����");
-		button.setBounds(35, 94, 113, 45);
+		JButton button = new JButton("중지"); //두번째 버튼 생성
+		button.setBounds(35, 94, 113, 45); //두번째 버튼 좌표
 		getContentPane().add(button);
 
-		setVisible(true);
+		setVisible(true); //창보이게하기
 	}
 }
