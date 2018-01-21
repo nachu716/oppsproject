@@ -1,0 +1,19 @@
+package opens;
+ 
+import java.io.BufferedReader;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+import java.util.StringTokenizer;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.nodes.Element;
+import org.jsoup.select.Elements;
+ 
+public class main {
+    public static void main(String[] args) throws Exception {
+        
+    	new gui();
+    }
+}
